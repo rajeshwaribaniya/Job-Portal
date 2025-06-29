@@ -11,10 +11,11 @@ import applicationRoute from "./routes/application.route.js"
 const app = express(); // create express app instance
 const PORT = process.env.PORT || 3000; // set port from environment variable or default to 5000
 
+console.log(process.env.VITE_FRONTEND_URL)
 dotenv.config(); // load environment variables from .env file
 const corsOptions = {
-    origin: ['http://localhost:5173', process.env.VITE_FRONTEND_URL],
-    credentials: true
+    origin: process.env.VITE_FRONTEND_URL, // allow requests from these origins
+    credentials: true // allow cookies to be sent with requests
 };
 
 // middleware
